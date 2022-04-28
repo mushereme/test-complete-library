@@ -37,12 +37,6 @@ def impl(param1, param2):
   trLast = tr[trLen - 1]
   Log.Picture(trLast)       
   
-  # Хайж буй баганы утга авах
-  tdList = trLast.FindElements(".//td")
-  input = tdList[colIndex].FindElement(".//input[@name='format-order-number']")
-  input.Keys(value)
-  
-  
   # Эхний баганд тоо оруулах
   tdList = trLast.FindElements(".//td")
   td = tdList[colIndex]

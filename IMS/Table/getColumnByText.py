@@ -5,11 +5,13 @@ page = ''
 constant = ''
 Log = ''
 aqObject = ''
-cmpEquals = ''
+cmpEqual = ''
 
 # @then("find table column {arg} and value {arg}")
 def impl(param1, param2):
-     
+
+  # Эхлэлийн утгууд зарлах
+  page = constant.Init_Dynamicpage()
   column = param1
   value = param2
   colIndex = False
@@ -19,10 +21,10 @@ def impl(param1, param2):
   tHead = table.FindElement("./thead")
   tr = tHead.FindElement("./tr")
   thList = tr.FindElements("./th")
-  thLen = len(thLen)
+  thLen = len(thList)
    
   # Хайж буй баганы дугаар олох
-  if len(thLen) > 1:
+  if thLen > 1:
     for i in range(0, thLen):
         if thList[i].contentText == column:
             colIndex = i
@@ -31,15 +33,19 @@ def impl(param1, param2):
             if colIndex == False:
                 Log.Error("Can't find: " + column) 
             
-  # Сүүлийн мөр олох
-  tr = table.FindElements(".//tbody//tr")
-  trLen = len(tr)
-  trLast = tr[trLen - 1]
-  Log.Picture(trLast)       
+  # Сүүлийн мөрийг ололгүйгээр хайж буй багаар давталж гүйлгэж хайсан утгатай тэнцэж байгаа эсэхийг шалгаарай
+  trList = table.FindElements('.//tbody//tr')
+  trLen = len(trList)
   
-  # Эхний баганд тоо оруулах
-  tdList = trLast.FindElements(".//td")
-  td = tdList[colIndex]
-  
-  aqObject.CheckProperty(td, "Visible", cmpEquals, True)
-  
+  for i in range(0, trLen): 
+    tdList = trList[i].FindElements('.//td')
+    tdLen = len(tdList)
+    for j in range(0, tdLen):
+      colValue = tdList[colIndex]
+      if colValue.contentText == value: 
+        Log.Message(colValue.contentText)
+        aqObject.CheckProperty(colValue, "Visible", cmpEqual, True)
+        break
+      else: 
+        if j == tdLen - 1: 
+          Log.Message("Can't find value")

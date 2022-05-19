@@ -1,5 +1,10 @@
 # Case ID: 291
+# Дурын DROPDOWN дээр дарж хайж буй утгыг сонгоод сонгогдсон эсэхийг шалгана.
+
+# Scenario бичиглэл
 # Then find personal info "Таны хэн болох?" input and select "Эх" 
+
+# Кодын бичиглэл
 # @then("find personal info {arg} input and select {arg}")
 
 def step_impl(param1, param2):

@@ -1,5 +1,10 @@
 # Case ID: 304
-# Then find personal info "Регистрийн дугаар" input and enter "96100511" then "96100511"
+# INPUT төрөлтэй оролтод оруулах утга болон зөв бичиглэл дамжуулсанаар бичигдэх текст ямар ч байсан шалгах текстээ шалгана
+
+# Scenario бичиглэл
+# Then find personal info "Регистрийн дугаар" input and enter "ER96100511" then "96100511"
+
+# Кодын бичиглэл
 # @then("find personal info {arg} input and enter {arg} then {arg}")
 def step_impl(param1, param2, param3):
   # Эхлэлийн утгууд тохируулах

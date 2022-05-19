@@ -1,4 +1,5 @@
 # CASE ID: 309
+# Хоосон үед заавал бөглөх гэсэн алдааг тухайн оролтын доор байгааг олох.
 
 # Оролтод тохирсон хайх shortpath буцаана
 def findInputType(type):
@@ -8,7 +9,10 @@ def findInputType(type):
   }
   return inputTypes[type]
 
+# Scenario бичиглэл
 # Then error on personal info "Нэр" input "input" then "Үргэлжлүүлэх"
+
+# Кодын бичиглэл
 # @then("error on personal info {arg} input {arg} then {arg}")
 def step_impl(param1, param2, param3):
   # Эхлэлийн утгууд тохируулах

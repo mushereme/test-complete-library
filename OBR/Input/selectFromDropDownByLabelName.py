@@ -1,3 +1,4 @@
+# Case ID: 291
 # Then find personal info "Таны хэн болох?" input and select "Эх" 
 # @then("find personal info {arg} input and select {arg}")
 

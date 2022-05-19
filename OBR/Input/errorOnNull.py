@@ -1,3 +1,4 @@
+# CASE ID: 309
 
 # Оролтод тохирсон хайх shortpath буцаана
 def findInputType(type):

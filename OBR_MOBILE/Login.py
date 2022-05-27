@@ -23,3 +23,19 @@ def step_impl(param1, param2):
   button = process.FindElementByXPath('//*[@text=\"НЭВТРЭХ\"]')
   button.Touch()
   button.Click()
+  
+# Dynamic process
+def Init_Dynamicprocess():
+  # Апптай холбогдох серверийн тохиргоо
+  server = "http://127.0.0.1:4723/wd/hub"
+  dynamic = '*'
+  capabilities = {
+      "app": "D:\\projects\\automation\\mobile\\apk\\Khan bank_1.3.6.apk", 
+      "deviceName": "Pixel 2", 
+      "platformName": "Android", 
+      "platformVersion": "11"
+  }
+  
+  # Mobile.ConnectDevice(server, capabilities, 600)
+  
+  return Mobile.Device(dynamic).Process(dynamic)
